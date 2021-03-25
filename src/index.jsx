@@ -3,26 +3,39 @@ import 'babel-polyfill';
 import {
   APP_INIT_ERROR, APP_READY, subscribe, initialize,
 } from '@edx/frontend-platform';
+import { getConfig } from '@edx/frontend-platform';
 import { AppProvider, ErrorPage } from '@edx/frontend-platform/react';
+import { IntlProvider} from '@edx/frontend-platform/i18n';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Switch }  from 'react-router-dom';
 
 import Header, { messages as headerMessages } from '@edx/frontend-component-header';
 import Footer, { messages as footerMessages } from '@edx/frontend-component-footer';
 
 import appMessages from './i18n';
-import ExamplePage from './example/ExamplePage';
+
+import TeacherDashboard from './pages/TeacherDashboard'
+import ClassDashboard from './pages/ClassDashboard'
 
 import './index.scss';
 
-subscribe(APP_READY, () => {
-  ReactDOM.render(
+const App = () => (
     <AppProvider>
-      <Header />
-      <ExamplePage />
-      <Footer />
-    </AppProvider>,
-    document.getElementById('root'),
+        <Header/>
+        <Router>
+           <Switch>
+              <Route exact path={getConfig().PUBLIC_PATH} component={TeacherDashboard}/>
+              <Route exact path={'/class/:classId'} component={ClassDashboard}/>
+           </Switch>
+        </Router>
+        <Footer/>
+    </AppProvider>
+)
+
+subscribe(APP_READY, () => {
+  ReactDOM.render(<App/>, document.getElementById('root'),
   );
 });
 
