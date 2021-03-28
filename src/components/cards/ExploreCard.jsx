@@ -10,7 +10,7 @@ export default function ExploreCard(props) {
   return (
     <Card className="exploreCard">
       <Card.Body className="exploreCardBody">
-        <Card.Link href={configuration.EXPLORE_COURSES_URL}>
+        <Card.Link href="">
           <div className="exploreSearchIcon">
             <FontAwesomeIcon icon={props.icon} inverse size="2x" />
           </div>
@@ -23,5 +23,5 @@ export default function ExploreCard(props) {
 
 ExploreCard.propTypes = {
   text: PropTypes.string.isRequired,
-  icon: PropTypes.object.isRequired,
+  icon: PropTypes.objectOf(PropTypes.object()).isRequired,
 };
