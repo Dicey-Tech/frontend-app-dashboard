@@ -1,2 +1,19 @@
 @import './NewClassCard.scss';
 @import './DashboardCard.scss';
+
+.card-scroll-region {
+    @extend .d-inline;
+
+    overflow-x: auto;
+    white-space: nowrap;
+
+    & > div.card {
+        &:not(:last-child) {
+            @extend .mr-2;
+        }
+        display: inline-flex;
+        float: none;
+    } 
+
+}
+

@@ -1,2 +1,6 @@
 @import './cards/';
 @import './StudentCount.scss';
+
+.card-row {
+    min-height: 370px;
+}

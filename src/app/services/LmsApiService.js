@@ -36,6 +36,11 @@ class LmsApiService {
     };
     return this.fetchEnterpriseQuery(queryParams);
   }
+
+  static async fetchCoursesTeaching() {
+    const requestUrl = `${LmsApiService.baseUrl()}/api/courses/v1/courses/?role=staff`;
+    return LmsApiService.apiClient().get(requestUrl);
+  }
 }
 
 export default LmsApiService;
