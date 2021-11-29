@@ -8,14 +8,13 @@ import StudentCount from '../StudentCount';
 
 export default function DashboardCard(props) {
   return (
-    <Card className="dashboard-card" style={{ height: '370px', width: '316px' }}>
+    <Card className="dashboard-card">
       <Card.Img variant="top" src={props.media} className="card-image" />
       <Card.Body className="pt-2 pl-4 pr-4 pb-2 position-relative">
-        <div className="row">
-          <Card.Title>{props.name}</Card.Title>
-        </div>
-        <div>{props.description}</div>
-        <div>{props.level}</div>
+        <Card.Title>{props.name}</Card.Title>
+        <Card.Text>
+          {props.description}
+        </Card.Text>
       </Card.Body>
       <Card.Footer>
         <div className={`row align-items-center ${props.actionBtnText ? 'justify-content-between' : 'justify-content-end'}`}>
@@ -24,7 +23,8 @@ export default function DashboardCard(props) {
               <Button variant="primary" href={props.url}>{props.actionBtnText}</Button>
             </div>
           )}
-          <StudentCount className="col col-3" studentCount={props.studentCount} />
+          {props.studentCount
+            && <StudentCount className="col col-3" studentCount={props.studentCount} />}
         </div>
       </Card.Footer>
     </Card>
@@ -33,7 +33,6 @@ export default function DashboardCard(props) {
 
 DashboardCard.defaultProps = {
   description: null,
-  level: null,
   studentCount: null,
   actionBtnText: null,
 };
@@ -43,7 +42,6 @@ DashboardCard.propTypes = {
   url: PropTypes.string.isRequired,
   media: PropTypes.string.isRequired,
   description: PropTypes.string,
-  level: PropTypes.string,
   studentCount: PropTypes.number,
   actionBtnText: PropTypes.string,
 };

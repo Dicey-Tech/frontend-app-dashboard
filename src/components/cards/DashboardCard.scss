@@ -1,7 +1,12 @@
 .dashboard-card {
+    /*height: 370px;
+    width: 317px;*/
     .card-footer {
         background-color: transparent;
         border-top: none;
     }
 
+    .card-img-top {
+        max-height: 185px;
+    }
 }

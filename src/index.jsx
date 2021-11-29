@@ -23,7 +23,7 @@ import store from './data/store';
 import './index.scss';
 
 const App = () => (
-  <IntlProvider lang="en">
+  <IntlProvider locale="en">
     <AppProvider store={store}>
       <Header />
       <TeacherDashboard />

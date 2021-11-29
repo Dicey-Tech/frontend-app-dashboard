@@ -16,7 +16,7 @@ const NewClassCard = (props) => {
     window.location.href = newURL;
   };
   return (
-    <Card className="new-class-card h-100">
+    <Card className="new-class-card dashboard-card">
       <Card.Body className="new-class-card-body">
         <CreateClassroomDialog isOpen={isOpen} close={close} onSuccess={onCreatedClassroom} />
         <div>
