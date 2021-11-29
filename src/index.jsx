@@ -1,17 +1,16 @@
-import 'babel-polyfill';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 
 import {
   APP_INIT_ERROR, APP_READY, subscribe, initialize,
-  getConfig,
+  mergeConfig,
 } from '@edx/frontend-platform';
 
-import { ErrorPage } from '@edx/frontend-platform/react';
+import { AppProvider, ErrorPage } from '@edx/frontend-platform/react';
 import { IntlProvider } from '@edx/frontend-platform/i18n';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Provider } from 'react-redux';
 
 import Header, { messages as headerMessages } from '@edx/frontend-component-header';
 import Footer, { messages as footerMessages } from '@edx/frontend-component-footer';
@@ -19,23 +18,17 @@ import Footer, { messages as footerMessages } from '@edx/frontend-component-foot
 import appMessages from './i18n';
 
 import TeacherDashboard from './pages/TeacherDashboard';
-import ClassDashboard from './pages/ClassDashboard';
 
 import store from './data/store';
 import './index.scss';
 
 const App = () => (
   <IntlProvider lang="en">
-    <Provider store={store}>
+    <AppProvider store={store}>
       <Header />
-      <Router>
-        <Switch>
-          <Route exact path={getConfig().PUBLIC_PATH} component={TeacherDashboard} />
-          <Route exact path="/class/:classId" component={ClassDashboard} />
-        </Switch>
-      </Router>
+      <TeacherDashboard />
       <Footer />
-    </Provider>
+    </AppProvider>
   </IntlProvider>
 );
 
@@ -54,4 +47,16 @@ initialize({
     headerMessages,
     footerMessages,
   ],
+  requireAuthenticatedUser: true,
+  hydrateAuthenticatedUser: true,
+  handlers: {
+    config: () => {
+      mergeConfig({
+        CLASSROOM_BASE_URL: process.env.CLASSROOM_BASE_URL,
+        GRADEBOOK_URL: process.env.GRADEBOOK_URL,
+        CLASSROOM_MFE_URL: process.env.CLASSROOM_MFE_URL,
+      }, 'App loadConfig override handler');
+    },
+  },
+
 });

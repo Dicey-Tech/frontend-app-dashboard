@@ -25,7 +25,7 @@ export default function CourseCard(props) {
         </div>
         <div className="row" id="action-row">
           <div className="col col-6 p-0">
-            <Button variant="primary" href={props.url}>Open Class</Button>
+            <Button variant="primary" href={props.url}>View Grades</Button>
           </div>
           <div className="col col-6 p-0 text-right">
             <FontAwesomeIcon icon={faBookmark} className="bookmark-icon" />

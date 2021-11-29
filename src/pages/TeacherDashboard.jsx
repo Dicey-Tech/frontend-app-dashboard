@@ -1,13 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import CardSection from '../components/CardSection';
+import ClassesSection
+  from '../components/ClassesSection';
 
 const TeacherDashboard = () => {
   const classesTeaching = useSelector(state => state.teaching.classes);
 
   return (
     <>
-      <div>This is a test of the dashboard</div>
+      <ClassesSection />
       <CardSection sectionTitle="Currently Teaching" courses={classesTeaching} />
     </>
   );
