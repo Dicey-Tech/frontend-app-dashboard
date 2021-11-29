@@ -7,3 +7,10 @@
 
 @import "~@edx/frontend-component-header/dist/index";
 @import "~@edx/frontend-component-footer/dist/footer";
+
+.card {
+    height: 370px;
+    width: 317px;
+}
+
+@import "./components";
