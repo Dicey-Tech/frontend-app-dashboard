@@ -46,7 +46,7 @@ const ClassesSection = () => {
       })
       .finally(() => setIsLoading(false));
   },
-  []);
+    []);
   /* eslint-disable no-nested-ternary */
 
   const classCards = isLoading ? (
@@ -58,7 +58,7 @@ const ClassesSection = () => {
       </div>
     ) : (
       <div key="classroom-list" className="col card-scroll-region">
-        {classes.slice(0, 3).map((element) => (
+        {classes.map((element) => (
           <DashboardCard
             key={element.uuid}
             media="/public/images/classroom.png"
