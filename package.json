@@ -1,10 +1,10 @@
 {
-  "name": "@edx/frontend-template-application",
+  "name": "@dicey-tech/frontend-app-teacher-dashboard",
   "version": "0.1.0",
-  "description": "Frontend application template",
+  "description": "Frontend Teacher Dashboard",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/edx/frontend-template-application.git"
+    "url": "git+https://github.com/Dicey-Tech/frontend-app-teacher-dashboard.git"
   },
   "browserslist": [
     "last 2 versions",
@@ -27,12 +27,12 @@
   },
   "author": "edX",
   "license": "AGPL-3.0",
-  "homepage": "https://github.com/edx/frontend-template-application#readme",
+  "homepage": "https://github.com/Dicey-Tech/frontend-app-teacher-dashboard#readme",
   "publishConfig": {
     "access": "public"
   },
   "bugs": {
-    "url": "https://github.com/edx/frontend-template-application/issues"
+    "url": "https://github.com/Dicey-Tech/frontend-app-teacher-dashboard/issues"
   },
   "dependencies": {
     "@edx/brand": "git+https://git@github.com/Dicey-Tech/brand-openedx.git",
