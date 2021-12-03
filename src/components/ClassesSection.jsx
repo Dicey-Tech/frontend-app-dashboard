@@ -46,7 +46,7 @@ const ClassesSection = () => {
       })
       .finally(() => setIsLoading(false));
   },
-    []);
+  []);
   /* eslint-disable no-nested-ternary */
 
   const classCards = isLoading ? (
