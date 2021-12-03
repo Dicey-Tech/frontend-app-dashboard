@@ -3,7 +3,7 @@ import PropType from 'prop-types';
 
 export default function SectionTitle(props) {
   return (
-    <span className="sectionTitle">{props.children}</span>
+    <h2 className="section-title">{props.children}</h2>
   );
 }
 
