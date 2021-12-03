@@ -1,10 +1,12 @@
 import { getConfig } from '@edx/frontend-platform';
 import React, { useState, useEffect } from 'react';
 import {
-  Container, Row, Col, Spinner,
+  Container, Row, Col,
 } from '@edx/paragon';
 import LmsApiService from '../app/services/LmsApiService';
 import DashboardCard from './cards/DashboardCard';
+import SectionTitle from './SectionTitle';
+import DiceySpinner from './DiceySpinner';
 
 const TeachingSection = () => {
   const [courses, setCourses] = useState([]);
@@ -35,13 +37,11 @@ const TeachingSection = () => {
 
   /* eslint-disable no-nested-ternary */
   const courseCards = isLoading ? (
-    <div key="teaching-loading" className="align-self-center d-inline">
-      <Spinner animation="border" variant="primary" />
-    </div>
+    <DiceySpinner />
   )
     : courses.length === 0 ? (
       <div key="teaching-empty" className="col align-self-center d-inline">
-        <h4>You are not teaching any courses</h4>
+        <h4>You are not teaching any courses.</h4>
       </div>
     ) : (
       <div key="teaching-list" className="card-scroll-region col">
@@ -57,12 +57,12 @@ const TeachingSection = () => {
         ))}
       </div>
     );
-    /* eslint-enable no-nested-ternary */
+  /* eslint-enable no-nested-ternary */
   return (
     <Container>
       <Row>
         <Col>
-          <h2>Currently Teaching</h2>
+          <SectionTitle>Currently Teaching</SectionTitle>
         </Col>
       </Row>
       <Row className="card-row px-2">

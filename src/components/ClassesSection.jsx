@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Container, Row, Col, Spinner,
+  Container, Row, Col,
 } from '@edx/paragon';
 import { getConfig } from '@edx/frontend-platform';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import ClassroomApiService from '../app/services/ClassroomApiService';
 import DashboardCard from './cards/DashboardCard';
 import NewClassCard from './cards/NewClassCard';
+import SectionTitle from './SectionTitle';
+import DiceySpinner from './DiceySpinner';
 
 const fetchClassroomsData = async () => {
   const response = await ClassroomApiService.getAllClassrooms();
@@ -34,27 +36,29 @@ const ClassesSection = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetchClassroomsData().then((result) => {
-      console.log(result, 'classrooms');
-      setClasses(result);
-    }).catch(() => {
-      alert('There was an error fetching the list of classrooms');
-    }).finally(() => setIsLoading(false));
-  }, []);
-
+    fetchClassroomsData()
+      .then((result) => {
+        console.log(result, 'classrooms');
+        setClasses(result);
+      })
+      .catch(() => {
+        alert('There was an error fetching the list of classrooms');
+      })
+      .finally(() => setIsLoading(false));
+  },
+  []);
   /* eslint-disable no-nested-ternary */
+
   const classCards = isLoading ? (
-    <div className="col align-self-center d-inline-block">
-      <Spinner animation="border" variant="primary" />
-    </div>
+    <DiceySpinner />
   )
     : classes.length === 0 ? (
-      <div key="no-classrooms" className="col align-self-center d-inline-block">
-        <h2>No Classrooms!</h2><h4>Use the Add Classroom button to create one!</h4>
+      <div key="no-classrooms" className="col align-self-center d-inline">
+        <h3>No Classrooms</h3><h5>Use the New Class button to create one!</h5>
       </div>
     ) : (
       <div key="classroom-list" className="col card-scroll-region">
-        {classes.map((element) => (
+        {classes.slice(0, 3).map((element) => (
           <DashboardCard
             key={element.uuid}
             media="/public/images/classroom.png"
@@ -71,11 +75,11 @@ const ClassesSection = () => {
     <Container>
       <Row>
         <Col>
-          <h2>My Classes</h2>
+          <SectionTitle>My Classes</SectionTitle>
         </Col>
       </Row>
       <Row className="card-row px-2">
-        <div key="new-class-card" className="d-inline-block pt-2 pb-2 mr-2"><NewClassCard text="New Class" icon={faPlusCircle} /></div>
+        <div key="new-class-card" className="d-inline-block pb-2 mr-2"><NewClassCard text="New Class" icon={faPlusCircle} /></div>
         {classCards}
       </Row>
     </Container>

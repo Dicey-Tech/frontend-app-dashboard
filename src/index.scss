@@ -13,4 +13,16 @@
     width: 317px;
 }
 
+/* these are not in the bootstrap that our paragon includes */
+.start-50 {
+    left: 50%;
+}
+.top-50 {
+    top: 50%;
+}
+
+.translate-middle {
+    transform: translate(-50%,-50%);
+}
+
 @import "./components";
