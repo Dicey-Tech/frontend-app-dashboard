@@ -19,12 +19,11 @@ import appMessages from './i18n';
 
 import TeacherDashboard from './pages/TeacherDashboard';
 
-import store from './data/store';
 import './index.scss';
 
 const App = () => (
   <IntlProvider locale="en">
-    <AppProvider store={store}>
+    <AppProvider>
       <Header />
       <TeacherDashboard />
       <Footer />
@@ -33,7 +32,6 @@ const App = () => (
 );
 
 subscribe(APP_READY, () => {
-  // store.dispatch(fetchClassesTeaching()); /* we get this just the once when the app loads */
   ReactDOM.render(<App />, document.getElementById('root'));
 });
 

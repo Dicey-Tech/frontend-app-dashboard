@@ -1,49 +1,27 @@
 |Build Status| |Codecov| |license|
 
-frontend-template-application
+Dicey-Tech Frontend App Teacher Dashboard
 =================================
 
-Please tag **@edx/fedx-team** on any PRs or issues.  Thanks.
 
 Introduction
 ------------
 
-This repository is a template for Open edX micro-frontend applications. It is flagged as a Template Repository, meaning it can be used as a basis for new GitHub repositories by clicking the green "Use this template" button above.  The rest of this document describes how to work with your new micro-frontend after you've created a new repository from the template.
+This repository is the prototype teacher dashboard for the Dicey Tech classroom system
 
-After Copying The Template
---------------------------
+Installation
+------------
 
-You'll want to do a find-and-replace to replace all instances of ``frontend-template-application`` with the name of your new repository.
+We use Tutor for Edx please follow the instructions for installation and addition of this MFE as a plugin part of the MFE plugin.
 
-**Prerequisite**
 
-`Devstack <https://edx.readthedocs.io/projects/edx-installing-configuring-and-running/en/latest/installation/index.html>`_.  If you start Devstack with ``make dev.up.ecommerce`` that should give you everything you need as a companion to this frontend.
+Default port is 1999. 
 
-**Installation and Startup**
-
-In the following steps, replace "frontend-template-application' with the name of the repo you created when copying this template above.
-
-1. Clone your new repo:
-
-  ``git clone https://github.com/edx/frontend-template-application.git``
-
-2. Use node v12.x.
-   
-   The micro-frontend build scripts support node 12.  Using other major versions of node *may* work, but is unsupported.  For convenience, this repository includes an .nvmrc file to help in setting the correct node version via `nvm <https://github.com/nvm-sh/nvm>`_.
-
-3. Install npm dependencies:
-
-  ``cd frontend-template-application && npm install``
-
-4. Update the application port to use for local development:
-
-   Default port is 8080. If this does not work for you, update the line `PORT=8080` to your port in all .env.* files
-
-5. Start the dev server:
+Start the dev server:
 
   ``npm start``
 
-The dev server is running at `http://localhost:8080 <http://localhost:8080>`_ or whatever port you setup.
+The dev server is running at `http://app.local.overhang.io:1999.
 
 Project Structure
 -----------------
