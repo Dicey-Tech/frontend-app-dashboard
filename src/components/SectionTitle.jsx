@@ -1,9 +1,14 @@
 import React from 'react';
 import PropType from 'prop-types';
+import { Row, Col } from '@edx/paragon';
 
 export default function SectionTitle(props) {
   return (
-    <h2 className="section-title">{props.children}</h2>
+    <Row className="align-items-center section-title">
+      <Col>
+        <h2>{props.children}</h2>
+      </Col>
+    </Row>
   );
 }
 

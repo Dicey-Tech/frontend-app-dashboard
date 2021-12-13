@@ -1,7 +1,7 @@
 import { getConfig } from '@edx/frontend-platform';
 import React, { useState, useEffect } from 'react';
 import {
-  Container, Row, Col,
+  Container, Row,
 } from '@edx/paragon';
 import LmsApiService from '../app/services/LmsApiService';
 import DashboardCard from './cards/DashboardCard';
@@ -59,12 +59,8 @@ const TeachingSection = () => {
     );
   /* eslint-enable no-nested-ternary */
   return (
-    <Container>
-      <Row>
-        <Col>
-          <SectionTitle>Currently Teaching</SectionTitle>
-        </Col>
-      </Row>
+    <Container className="section-container">
+      <SectionTitle>Currently Teaching</SectionTitle>
       <Row className="card-row px-2">
         {courseCards}
       </Row>

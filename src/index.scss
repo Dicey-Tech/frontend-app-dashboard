@@ -23,4 +23,11 @@
     transform: translate(-50%,-50%);
 }
 
+.section-container {
+    /* for some reason the mixin takes the padding I want and halfs it so I put in double what I want! */
+    /* unsure how this will look in small browser sizes */
+    @include make-container(3rem);
+    padding-left: 3.8rem;
+}
+
 @import "./components";
