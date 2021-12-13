@@ -7,9 +7,12 @@ import PropTypes from 'prop-types';
 import StudentCount from '../StudentCount';
 
 export default function DashboardCard(props) {
+  const onImageError = (e) => {
+    e.currentTarget.src = '/public/images/defaultcourse.png';
+  };
   return (
     <Card className="dashboard-card">
-      <Card.Img variant="top" src={props.media} className="card-image" />
+      <Card.Img variant="top" src={props.media} className="card-image" onError={onImageError} />
       <Card.Body className="pt-2 pl-4 pr-4 pb-2 position-relative">
         <Card.Title>{props.name}</Card.Title>
         <Card.Text>
