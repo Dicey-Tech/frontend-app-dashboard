@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Container, Row, Col,
+  Container, Row,
 } from '@edx/paragon';
 import { getConfig } from '@edx/frontend-platform';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
@@ -72,12 +72,8 @@ const ClassesSection = () => {
     );
   /* eslint-enable no-nested-ternary */
   return (
-    <Container>
-      <Row>
-        <Col>
-          <SectionTitle>My Classes</SectionTitle>
-        </Col>
-      </Row>
+    <Container className="section-container">
+      <SectionTitle>My Classes</SectionTitle>
       <Row className="card-row px-2">
         <div key="new-class-card" className="d-inline-block pb-2 mr-2"><NewClassCard text="New Class" icon={faPlusCircle} /></div>
         {classCards}
