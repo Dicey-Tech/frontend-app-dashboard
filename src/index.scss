@@ -30,4 +30,25 @@
     padding-left: 3.8rem;
 }
 
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: $gray-100;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $primary;
+    border-radius: 5px;
+}
+
+
+
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: $primary $gray-100;
+    scrollbar-gutter: stable;
+}
+
 @import "./components";
