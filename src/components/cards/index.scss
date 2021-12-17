@@ -3,6 +3,7 @@
 
 .card-scroll-region {
     @extend .d-inline;
+    @extend .pb-1;
 
     overflow-x: auto;
     white-space: nowrap;

@@ -28,6 +28,9 @@
     /* unsure how this will look in small browser sizes */
     @include make-container(3rem);
     padding-left: 3.8rem;
+    &:last-of-type {
+        @extend .mb-3;
+    }
 }
 
 ::-webkit-scrollbar {
