@@ -37,8 +37,8 @@ class LmsApiService {
     return this.fetchEnterpriseQuery(queryParams);
   }
 
-  static async fetchCoursesTeaching() {
-    const requestUrl = `${LmsApiService.baseUrl()}/api/courses/v1/courses/?role=staff`;
+  static async fetchCoursesTeaching(username) {
+    const requestUrl = `${LmsApiService.baseUrl()}/api/courses/v1/course_ids/?role=staff&username=${username}`;
     return LmsApiService.apiClient().get(requestUrl);
   }
 }
