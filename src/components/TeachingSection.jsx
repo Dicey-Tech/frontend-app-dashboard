@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import {
   Container, Row,
 } from '@edx/paragon';
+import { getAuthenticatedUser } from '@edx/frontend-platform/auth';
 import LmsApiService from '../app/services/LmsApiService';
 import DashboardCard from './cards/DashboardCard';
 import SectionTitle from './SectionTitle';
@@ -14,16 +15,28 @@ const TeachingSection = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await LmsApiService.fetchCoursesTeaching();
-      /* clean up the data returned */
-      const result = response.data.results.map((course) => ({
-        name: course.name,
-        uuid: course.id,
-        media: course.media.image.small,
-        description: course.short_description,
-        url: `${getConfig().GRADEBOOK_URL}/${course.course_id}`,
-
-      }));
+      const { username } = getAuthenticatedUser();
+      const response = await LmsApiService.fetchCoursesTeaching(username);
+      /* we only get course_ids - we need to get the data for each */
+      const result = [];
+      /* eslint-disable no-restricted-syntax */
+      /* eslint-disable no-await-in-loop */
+      for (const courseId of response.data.results) {
+        try {
+          const course = await LmsApiService.fetchCourseInfo(courseId);
+          result.push({
+            name: course.data.name,
+            uuid: course.data.id,
+            media: course.data.media.image.small,
+            description: course.data.short_description,
+            url: `${getConfig().GRADEBOOK_URL}/${course.course_id}`,
+          });
+        } catch {
+          /* skip that course */
+        }
+      }
+      /* eslint-enable no-restricted-syntax */
+      /* eslint-enable no-await-in-loop */
       return result;
     };
 
