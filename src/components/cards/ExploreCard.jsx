@@ -3,16 +3,23 @@ import {
   Card,
 } from '@edx/paragon';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
+import { getConfig } from '@edx/frontend-platform';
 
 const ExploreCard = (props) => (
-  <Card className="exploreCard h-100">
-    <Card.Body className="exploreCardBody position-relative">
-      <div className="position-absolute top-50 start-50 translate-middle">
-        <div className="exploreSearchIcon ">
-          <FontAwesomeIcon icon={props.icon} size="5x" />
+  <Card className="dashboard-card explore-card">
+    <Card.Body className="explore-card-body">
+      <div>
+        <div className="icon">
+          <Card.Link href={getConfig().EXPLORE_COURSES_URL}>
+            <span className="fa-stack fa-2x ">
+              <FontAwesomeIcon icon={faCircle} className="fa-stack-2x" />
+              <FontAwesomeIcon icon={props.icon} inverse className="fa-stack-1x" />
+            </span>
+          </Card.Link>
         </div>
-        <div>{props.text}</div>
+        <h4>{props.text}</h4>
       </div>
     </Card.Body>
   </Card>
@@ -22,5 +29,7 @@ export default ExploreCard;
 
 ExploreCard.propTypes = {
   text: PropTypes.string.isRequired,
-  icon: PropTypes.objectOf(PropTypes.object).isRequired,
+  /* eslint-disable react/forbid-prop-types */
+  icon: PropTypes.any.isRequired,
+  /* eslint-enable react/forbid-prop-types */
 };

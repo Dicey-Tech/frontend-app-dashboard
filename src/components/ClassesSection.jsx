@@ -5,6 +5,7 @@ import {
 import { getConfig } from '@edx/frontend-platform';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import ClassroomApiService from '../app/services/ClassroomApiService';
+import UserService from '../app/services/UserService';
 import DashboardCard from './cards/DashboardCard';
 import NewClassCard from './cards/NewClassCard';
 import SectionTitle from './SectionTitle';
@@ -38,7 +39,6 @@ const ClassesSection = () => {
     setIsLoading(true);
     fetchClassroomsData()
       .then((result) => {
-        console.log(result, 'classrooms');
         setClasses(result);
       })
       .catch(() => {
@@ -75,7 +75,11 @@ const ClassesSection = () => {
     <Container className="section-container">
       <SectionTitle>My Classes</SectionTitle>
       <Row className="card-row px-2">
-        <div key="new-class-card" className="d-inline-block pb-2 mr-2"><NewClassCard text="New Class" icon={faPlusCircle} /></div>
+        {UserService.canUserCreateClassroom() ? (
+          <div key="new-class-card" className="d-inline-block pb-2 mr-2">
+            <NewClassCard text="New Class" icon={faPlusCircle} />
+          </div>
+        ) : null}
         {classCards}
       </Row>
     </Container>

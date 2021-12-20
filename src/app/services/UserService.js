@@ -21,6 +21,16 @@ class UserService {
   static canUserCreateClassroom() {
     return this.getUserEnterpriseAdminUuid();
   }
+
+  static isUserAStudent() {
+    const user = getAuthenticatedUser();
+    return (user.roles.length === 0)
+      || (user.roles.find((element) => element.search(/enterprise_admin/ui) >= 0) === undefined);
+  }
+
+  static getUserName() {
+    return getAuthenticatedUser().username;
+  }
 }
 
 export default UserService;

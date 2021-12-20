@@ -1,0 +1,27 @@
+.explore-card {
+    box-shadow: 0px 2px 6px rgba(#000000, 0.25);
+    &-body{
+        position: relative;
+        >div {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+
+            h4 {
+                text-align: center;
+            }
+            
+        }
+    }
+    .icon {
+        a {
+            color: $primary !important;
+        }
+        text-align: center;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+}

@@ -41,6 +41,12 @@ class LmsApiService {
     const requestUrl = `${LmsApiService.baseUrl()}/api/courses/v1/course_ids/?role=staff&username=${username}`;
     return LmsApiService.apiClient().get(requestUrl);
   }
+
+  static fetchStudentCourses() {
+    /* fetch all the courses where current user is a student */
+    const requestUrl = `${LmsApiService.baseUrl()}/api/enrollment/v1/enrollment`;
+    return LmsApiService.apiClient().get(requestUrl);
+  }
 }
 
 export default LmsApiService;
