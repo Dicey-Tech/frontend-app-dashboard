@@ -10,6 +10,7 @@ import DashboardCard from './cards/DashboardCard';
 import NewClassCard from './cards/NewClassCard';
 import SectionTitle from './SectionTitle';
 import DiceySpinner from './DiceySpinner';
+import ClassroomImage from '../assets/classroom.png';
 
 const fetchClassroomsData = async () => {
   const response = await ClassroomApiService.getAllClassrooms();
@@ -61,7 +62,7 @@ const ClassesSection = () => {
         {classes.map((element) => (
           <DashboardCard
             key={element.uuid}
-            media="/public/images/classroom.png"
+            media={ClassroomImage}
             name={element.name}
             actionBtnText="Open Class"
             url={`${getConfig().CLASSROOM_MFE_URL}/${element.uuid}`}
