@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Card,
   Button,
 } from '@edx/paragon';
 import PropTypes from 'prop-types';
 import StudentCount from '../StudentCount';
+import DefaultImage from '../../assets/defaultcourse.png';
 
 export default function DashboardCard(props) {
-  const onImageError = (e) => {
-    e.currentTarget.src = '/public/images/defaultcourse.png';
+  const [imgSrc, setImgSrc] = useState(props.media);
+
+  const onImageError = () => {
+    setImgSrc(DefaultImage);
   };
+
   return (
     <Card className="dashboard-card">
-      <Card.Img variant="top" src={props.media} className="card-image" onError={onImageError} />
+      <Card.Img variant="top" src={imgSrc} className="card-image" onError={onImageError} />
       <Card.Body className="pt-2 pl-4 pr-4 pb-2 position-relative">
         <Card.Title>{props.name}</Card.Title>
         <Card.Text>

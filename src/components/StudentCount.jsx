@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Image } from '@edx/paragon';
+import StudentCountImage from '../assets/students.png';
 
 const StudentCount = ({ studentCount }) => (
   <div className="student-count">
-    <Image src="/public/images/students.png" className="mr-2" />
+    <Image src={StudentCountImage} className="mr-2" />
     {studentCount}
   </div>
 );
