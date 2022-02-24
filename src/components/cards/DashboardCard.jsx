@@ -17,9 +17,9 @@ export default function DashboardCard(props) {
   return (
     <Card className="dashboard-card">
       <Card.Img variant="top" src={imgSrc} className="card-image" onError={onImageError} />
-      <Card.Body className="pt-2 pl-4 pr-4 pb-2 position-relative">
+      <Card.Body className="pt-2 pl-4 pr-4 pb-2 position-relative text-truncate">
         <Card.Title>{props.name}</Card.Title>
-        <Card.Text>
+        <Card.Text className="text-wrap">
           {props.description}
         </Card.Text>
       </Card.Body>
