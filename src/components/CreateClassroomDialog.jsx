@@ -29,23 +29,20 @@ const CreateClassroomDialog = ({ isOpen, close, onSuccess }) => {
   };
 
   return (
-    <ModalDialog isOpen={isOpen} onClose={close} hasCloseButton={false} title="Create Classroom" size="md">
-      <ModalDialog.Header>
-        Create Classroom
-      </ModalDialog.Header>
+    <ModalDialog isOpen={isOpen} onClose={close} hasCloseButton={false} title="Create Classroom" size="md" className="create-classroom-dialog">
+      <ModalDialog.Header />
       <ModalDialog.Body>
         <Form.Group>
-          <Form.Label>Classroom Name</Form.Label>
           <Form.Control placeholder="Enter a name for the Classroom" ref={titleRef} onChange={onFormChange} />
         </Form.Group>
       </ModalDialog.Body>
       <ModalDialog.Footer>
-        <ActionRow>
+        <ActionRow className="action-row">
           <ModalDialog.CloseButton variant="tertiary">
             Cancel
           </ModalDialog.CloseButton>
           <Button variant="primary" onClick={onClassroomCreate} disabled={!canSubmit}>
-            Create
+            OK
           </Button>
         </ActionRow>
       </ModalDialog.Footer>
