@@ -25,6 +25,7 @@ const fetchTeachingCourses = async () => {
         media: course.data.media.image.small,
         description: course.data.short_description,
         url: `${getConfig().GRADEBOOK_URL}/${course.course_id}`,
+        start: Date.parse(course.data.start),
       });
     } catch {
       /* skip that course */
@@ -42,7 +43,7 @@ const TeachingSection = () => {
   useEffect(() => {
     setIsLoading(true);
     fetchTeachingCourses().then((data) => {
-      setCourses(data);
+      setCourses(data.sort((elemA, elemB) => elemB.start - elemA.start));
     })
       .catch(() => alert('An error occured fetching the courses you are teaching.'))
       .finally(() => setIsLoading(false));
