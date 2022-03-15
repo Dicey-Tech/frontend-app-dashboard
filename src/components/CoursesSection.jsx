@@ -14,14 +14,15 @@ const fetchStudentCourses = async () => {
   const result = data.map((element) => ({
     course_id: element.course_details.course_id,
   }));
-    /* now fetch the individual course information including the image */
-    /* eslint-disable no-restricted-syntax */
-    /* eslint-disable no-await-in-loop */
+  /* now fetch the individual course information including the image */
+  /* eslint-disable no-restricted-syntax */
+  /* eslint-disable no-await-in-loop */
   for (const element of result) {
     const course = await LmsApiService.fetchCourseInfo(element.course_id);
     element.name = course.data.name;
     element.description = course.data.short_description;
     element.media = course.data.media.image.small;
+    element.start = Date.parse(course.data.start);
   }
   /* eslint-enable no-await-in-loop */
   /* eslint-enable no-restricted-syntax */
@@ -35,7 +36,7 @@ const CoursesSection = () => {
   useEffect(() => {
     setIsLoading(true);
     fetchStudentCourses().then((data) => {
-      setCourses(data);
+      setCourses(data.sort((elemA, elemB) => elemB.start - elemA.start));
     })
       .catch(() => {
         alert('An error occured fetching enrolled courses data.');
@@ -69,7 +70,7 @@ const CoursesSection = () => {
           })}
         </div>
       );
-    /* eslint-enable no-nested-ternary */
+  /* eslint-enable no-nested-ternary */
 
   return (
     <Container className="section-container">
