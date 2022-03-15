@@ -76,7 +76,8 @@ const CoursesSection = () => {
     <Container className="section-container">
       <SectionTitle>My Courses</SectionTitle>
       <Row className="card-row px-2">
-        <ExploreCard text="Find New Courses" icon={faSearch} />
+        {(getConfig().EXPLORE_COURSES_URL || '') !== ''
+          ? <ExploreCard text="Find New Courses" icon={faSearch} /> : null}
         {courseCards}
       </Row>
     </Container>
