@@ -11,6 +11,6 @@ module.exports = merge(baseDevConfig, {
     allowedHosts: 'all',
     host: 'apps.local.overhang.io',
     port: 8081,
-    open: ['/dashboard']
+    open: ['/dashboard'],
   },
 });
