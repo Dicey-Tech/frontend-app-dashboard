@@ -5,7 +5,7 @@ import {
 } from '@edx/paragon';
 import { getAuthenticatedUser } from '@edx/frontend-platform/auth';
 import LmsApiService from '../app/services/LmsApiService';
-import DashboardCard from './cards/DashboardCard';
+import TeachingCard from './cards/TeachingCard';
 import SectionTitle from './SectionTitle';
 import DiceySpinner from './DiceySpinner';
 
@@ -24,7 +24,8 @@ const fetchTeachingCourses = async () => {
         uuid: course.data.id,
         media: course.data.media.image.small,
         description: course.data.short_description,
-        url: `${getConfig().GRADEBOOK_URL}/${course.course_id}`,
+        gradebookUrl: `${getConfig().GRADEBOOK_URL}/${course.data.course_id}`,
+        courseUrl: `${getConfig().LMS_BASE_URL}/courses/${course.data.course_id}/course`,
         start: Date.parse(course.data.start),
       });
     } catch {
@@ -60,13 +61,13 @@ const TeachingSection = () => {
     ) : (
       <div key="teaching-list" className="card-scroll-region col">
         {courses.map((element) => (
-          <DashboardCard
+          <TeachingCard
             key={element.uuid}
             name={element.name}
             description={element.description}
             media={element.media}
-            url={element.url}
-            actionBtnText="View Grades"
+            courseUrl={element.courseUrl}
+            gradebookUrl={element.gradebookUrl}
           />
         ))}
       </div>
