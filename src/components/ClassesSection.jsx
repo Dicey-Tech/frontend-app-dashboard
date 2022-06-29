@@ -43,7 +43,7 @@ const ClassesSection = () => {
         setClasses(result);
       })
       .catch(() => {
-        alert('There was an error fetching the list of classrooms');
+        // TODO If for some reason we can't fetch classroom data, hide the whole row
       })
       .finally(() => setIsLoading(false));
   },

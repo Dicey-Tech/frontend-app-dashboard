@@ -11,18 +11,28 @@ import DashboardCard from './cards/DashboardCard';
 const fetchStudentCourses = async () => {
   const response = await LmsApiService.fetchStudentCourses();
   const { data } = response;
-  const result = data.map((element) => ({
+  const result = [];
+  const courseEnrollments = data.map((element) => ({
     course_id: element.course_details.course_id,
   }));
+
   /* now fetch the individual course information including the image */
   /* eslint-disable no-restricted-syntax */
   /* eslint-disable no-await-in-loop */
-  for (const element of result) {
-    const course = await LmsApiService.fetchCourseInfo(element.course_id);
-    element.name = course.data.name;
-    element.description = course.data.short_description;
-    element.media = course.data.media.image.small;
-    element.start = Date.parse(course.data.start);
+  for (const element of courseEnrollments) {
+    try {
+      const course = await LmsApiService.fetchCourseInfo(element.course_id);
+
+      result.push({
+        course_id: element.course_id,
+        name: course.data.name,
+        description: course.data.short_description,
+        media: course.data.media.image.small,
+        start: Date.parse(course.data.start),
+      });
+    } catch {
+      /* Skip that course */
+    }
   }
   /* eslint-enable no-await-in-loop */
   /* eslint-enable no-restricted-syntax */
@@ -38,8 +48,8 @@ const CoursesSection = () => {
     fetchStudentCourses().then((data) => {
       setCourses(data.sort((elemA, elemB) => elemB.start - elemA.start));
     })
-      .catch(() => {
-        alert('An error occured fetching enrolled courses data.');
+      .catch((e) => {
+        throw e;
       })
       .finally(() => {
         setIsLoading(false);
