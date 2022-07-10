@@ -1,10 +1,10 @@
 {
-  "name": "@dicey-tech/frontend-app-teacher-dashboard",
+  "name": "@dicey-tech/frontend-app-dashboard",
   "version": "0.2.1",
-  "description": "Frontend Teacher Dashboard",
+  "description": "Frontend Dashboard for Dicey Tech Open edX instance",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Dicey-Tech/frontend-app-teacher-dashboard.git"
+    "url": "git+https://github.com/Dicey-Tech/frontend-app-dashboard.git"
   },
   "browserslist": [
     "last 2 versions",
@@ -25,44 +25,44 @@
       "pre-push": "npm run lint"
     }
   },
-  "author": "edX",
+  "author": "Dicey Tech",
   "license": "AGPL-3.0",
-  "homepage": "https://github.com/Dicey-Tech/frontend-app-teacher-dashboard#readme",
+  "homepage": "https://github.com/Dicey-Tech/frontend-app-dashboard#readme",
   "publishConfig": {
     "access": "public"
   },
   "bugs": {
-    "url": "https://github.com/Dicey-Tech/frontend-app-teacher-dashboard/issues"
+    "url": "https://github.com/Dicey-Tech/frontend-app-dashboard/issues"
   },
   "dependencies": {
     "@edx/brand": "git+https://git@github.com/Dicey-Tech/brand-openedx.git",
-    "@edx/frontend-component-footer": "10.1.6",
-    "@edx/frontend-component-header": "2.3.0",
-    "@edx/frontend-platform": "^1.14.9",
-    "@edx/paragon": "^16.14.1",
+    "@edx/frontend-component-footer": "10.2.1",
+    "@edx/frontend-component-header": "2.4.5",
+    "@edx/frontend-platform": "1.15.1",
+    "@edx/paragon": "19.6.0",
     "@fortawesome/fontawesome-svg-core": "1.2.36",
     "@fortawesome/free-brands-svg-icons": "5.15.4",
     "@fortawesome/free-regular-svg-icons": "5.15.4",
     "@fortawesome/free-solid-svg-icons": "5.15.4",
-    "@fortawesome/react-fontawesome": "0.1.16",
-    "core-js": "^3.15.2",
+    "@fortawesome/react-fontawesome": "0.1.17",
+    "core-js": "3.20.3",
     "prop-types": "15.7.2",
-    "query-string-for-all": "^7.0.1",
+    "query-string-for-all": "7.0.1",
     "react": "16.14.0",
     "react-dom": "16.14.0",
-    "react-redux": "7.2.5",
+    "react-redux": "7.2.6",
     "react-router": "5.2.1",
     "react-router-dom": "5.3.0",
-    "redux": "4.1.1",
+    "redux": "4.1.2",
     "regenerator-runtime": "0.13.9",
-    "webpack-merge": "^5.8.0"
+    "webpack-merge": "5.8.0"
   },
   "devDependencies": {
-    "@edx/frontend-build": "^9.0.6",
+    "@edx/frontend-build": "9.1.4",
     "codecov": "3.8.3",
     "es-check": "5.2.4",
     "glob": "7.2.0",
-    "husky": "^7.0.4",
+    "husky": "7.0.4",
     "jest": "27.2.2",
     "reactifex": "1.1.1"
   },
