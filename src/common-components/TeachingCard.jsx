@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+
 import {
   Card,
   Button,
 } from '@edx/paragon';
-import PropTypes from 'prop-types';
-import DefaultImage from '../../assets/defaultcourse.png';
+
+import DefaultImage from '../assets/defaultcourse.png';
 
 export default function TeachingCard(props) {
   const [imgSrc, setImgSrc] = useState(props.media);

@@ -1,6 +1,8 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { Image } from '@edx/paragon';
+
 import StudentCountImage from '../assets/students.png';
 
 const StudentCount = ({ studentCount }) => (
@@ -10,8 +12,6 @@ const StudentCount = ({ studentCount }) => (
   </div>
 );
 
-export default StudentCount;
-
 StudentCount.defaultProps = {
   studentCount: null,
 };
@@ -19,3 +19,5 @@ StudentCount.defaultProps = {
 StudentCount.propTypes = {
   studentCount: PropTypes.number,
 };
+
+export default StudentCount;

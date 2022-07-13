@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import {
-  Card,
-  Button,
-} from '@edx/paragon';
 import PropTypes from 'prop-types';
-import StudentCount from '../StudentCount';
-import DefaultImage from '../../assets/defaultcourse.png';
 
-export default function DashboardCard(props) {
+import { injectIntl } from '@edx/frontend-platform/i18n';
+import { Card, Button } from '@edx/paragon';
+
+/* TODO this component should not depend on a common-component*/
+import StudentCount from './StudentCount';
+import DefaultImage from '../assets/defaultcourse.png';
+
+export const DashboardCard = (props) => {
   const [imgSrc, setImgSrc] = useState(props.media);
 
   const onImageError = () => {
@@ -52,3 +53,5 @@ DashboardCard.propTypes = {
   studentCount: PropTypes.number,
   actionBtnText: PropTypes.string,
 };
+
+export default DashboardCard;

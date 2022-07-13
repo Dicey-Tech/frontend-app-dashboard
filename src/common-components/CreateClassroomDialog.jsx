@@ -1,8 +1,10 @@
-import PropTypes from 'prop-types';
 import React, { useRef, useState } from 'react';
+import PropTypes from 'prop-types';
+
 import {
   ActionRow, Form, ModalDialog, Button,
 } from '@edx/paragon';
+
 import UserService from '../app/services/UserService';
 import ClassroomApiService from '../app/services/ClassroomApiService';
 
