@@ -1,13 +1,11 @@
 $modal-content-bg: #f8f7f9 !default;
 
-@import "@edx/brand/paragon/fonts.scss";
-@import "@edx/brand/paragon/variables.scss";
-@import "@edx/paragon/scss/core/core.scss";
-@import "@edx/brand/paragon/overrides.scss";
-@import "~@edx/frontend-component-header/dist/index";
-@import "~@edx/frontend-component-footer/dist/footer";
+@import "~@edx/brand/paragon/fonts.scss";
+@import "~@edx/brand/paragon/variables.scss";
+@import "~@edx/paragon/scss/core/core.scss";
+@import "~@edx/brand/paragon/overrides.scss";
 
-
+@import "./common-components";
 
 .card {
     height: 370px;
@@ -36,27 +34,4 @@ $modal-content-bg: #f8f7f9 !default;
     }
 }
 
-/*
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-    background-color: $gray-100;
-    border-radius: 5px;
-}
 
-::-webkit-scrollbar-thumb {
-    background-color: $primary;
-    border-radius: 5px;
-}
-
-
-
-
-html {
-    scrollbar-width: thin;
-    scrollbar-color: $primary $gray-100;
-    scrollbar-gutter: stable;
-}
-*/
-
-@import "./components";

@@ -1,12 +1,13 @@
 import React from 'react';
-import { getConfig } from '@edx/frontend-platform';
+import PropTypes from 'prop-types';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { getConfig } from '@edx/frontend-platform';
 import {
   Card, useToggle,
 } from '@edx/paragon';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import PropTypes from 'prop-types';
-import CreateClassroomDialog from '../CreateClassroomDialog';
+
+import CreateClassroomDialog from './CreateClassroomDialog';
 
 const NewClassCard = (props) => {
   const [isOpen, open, close] = useToggle(false);

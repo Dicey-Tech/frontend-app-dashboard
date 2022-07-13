@@ -1,6 +1,9 @@
+@import './StudentCount.scss';
+@import './SectionTitle.scss';
+@import './CreateClassroomDialog.scss';
 @import './NewClassCard.scss';
-@import './DashboardCard.scss';
 @import './ExploreCard.scss';
+@import './DashboardCard.scss';
 
 .card-scroll-region {
     @extend .d-inline;
@@ -19,3 +22,6 @@
 
 }
 
+.card-row {
+    min-height: 370px;
+}

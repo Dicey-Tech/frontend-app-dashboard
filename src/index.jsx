@@ -1,20 +1,37 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
+
+import { AppProvider, ErrorPage } from '@edx/frontend-platform/react';
 import {
   APP_INIT_ERROR, APP_READY, subscribe, initialize,
   mergeConfig,
 } from '@edx/frontend-platform';
-import { messages as headerMessages } from '@edx/frontend-component-header';
-import { messages as footerMessages } from '@edx/frontend-component-footer';
-import { ErrorPage } from '@edx/frontend-platform/react';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
+
+import Header, { messages as headerMessages } from '@edx/frontend-component-header';
+import Footer, { messages as footerMessages } from '@edx/frontend-component-footer';
+
+import { DashboardPage } from './dashboard'
+import { NotFoundPage } from './common-components';
+import { DASHBOARD_PAGE, PAGE_NOT_FOUND } from './data/constants';
 import appMessages from './i18n';
+
 import './index.scss';
-import App from './app/index';
 
 subscribe(APP_READY, () => {
-  ReactDOM.render(<App />, document.getElementById('root'));
+  ReactDOM.render(
+    <AppProvider>
+      {/* <Switch> */}
+        <Header />
+        <Route exact path='/' component={DashboardPage} />
+        <Route path={PAGE_NOT_FOUND} component={NotFoundPage} />
+        <Footer />
+      {/* </Switch> */}
+    </AppProvider>, 
+    document.getElementById('root'),
+  );
 });
 
 subscribe(APP_INIT_ERROR, (error) => {

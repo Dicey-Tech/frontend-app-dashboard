@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
+
 import { Container, Row } from '@edx/paragon';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { getConfig } from '@edx/frontend-platform';
-import SectionTitle from './SectionTitle';
-import ExploreCard from './cards/ExploreCard';
+
+import { ExploreCard, SectionTitle, DashboardCard, DiceySpinner } from '../common-components';
 import LmsApiService from '../app/services/LmsApiService';
-import DiceySpinner from './DiceySpinner';
-import DashboardCard from './cards/DashboardCard';
 
 const fetchStudentCourses = async () => {
   const response = await LmsApiService.fetchStudentCourses();
@@ -84,11 +82,10 @@ const CoursesSection = () => {
 
   return (
     <Container className="section-container">
-      <SectionTitle>My Courses</SectionTitle>
+      <SectionTitle>My Projects</SectionTitle>
       <Row className="card-row px-2">
-        {(getConfig().EXPLORE_COURSES_URL || '') !== ''
-          ? <ExploreCard text="Find New Courses" icon={faSearch} /> : null}
-        {courseCards}
+        <ExploreCard />
+        {/* {courseCards} */}
       </Row>
     </Container>
   );
