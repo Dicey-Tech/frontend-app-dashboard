@@ -13,16 +13,18 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import Header, { messages as headerMessages } from '@edx/frontend-component-header';
 import Footer, { messages as footerMessages } from '@edx/frontend-component-footer';
 
+
+import { DASHBOARD_PAGE, PAGE_NOT_FOUND } from './data/constants';
+import configureStore from './data/configureStore';
 import { DashboardPage } from './dashboard'
 import { NotFoundPage } from './common-components';
-import { DASHBOARD_PAGE, PAGE_NOT_FOUND } from './data/constants';
 import appMessages from './i18n';
 
 import './index.scss';
 
 subscribe(APP_READY, () => {
   ReactDOM.render(
-    <AppProvider>
+    <AppProvider store={configureStore()}>
       {/* <Switch> */}
         <Header />
         <Route exact path='/' component={DashboardPage} />
