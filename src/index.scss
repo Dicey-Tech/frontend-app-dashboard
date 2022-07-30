@@ -4,13 +4,10 @@ $modal-content-bg: #f8f7f9 !default;
 @import "~@edx/brand/paragon/variables.scss";
 @import "~@edx/paragon/scss/core/core.scss";
 @import "~@edx/brand/paragon/overrides.scss";
+@import "~@edx/frontend-component-header/dist/index";
+@import "~@edx/frontend-component-footer/dist/footer";
 
 @import "./common-components";
-
-.card {
-    height: 370px;
-    width: 317px;
-}
 
 /* these are not in the bootstrap that our paragon includes */
 .start-50 {
@@ -28,10 +25,8 @@ $modal-content-bg: #f8f7f9 !default;
     /* for some reason the mixin takes the padding I want and halfs it so I put in double what I want! */
     /* unsure how this will look in small browser sizes */
     @include make-container(3rem);
-    padding-left: 3.8rem;
+    
     &:last-of-type {
         @extend .mb-3;
     }
 }
-
-

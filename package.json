@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@edx/brand": "git+https://git@github.com/Dicey-Tech/brand-openedx.git",
-    "@edx/frontend-component-footer": "10.2.1",
+    "@edx/frontend-component-footer": "10.2.2",
     "@edx/frontend-component-header": "2.4.5",
     "@edx/frontend-platform": "1.15.1",
     "@edx/paragon": "19.25.3",

@@ -2,8 +2,9 @@
     position: absolute;
     top: 20%;
     left: 16%;
+    
+    a {
+        color: $primary !important;
+    }
 }
 
-a {
-    color: $primary !important;
-}
