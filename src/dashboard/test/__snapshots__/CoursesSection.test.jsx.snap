@@ -1,0 +1,211 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TestCoursesSection should render a message if the user is not enrolled in any course 1`] = `
+<div
+  className="section-container container-fluid"
+>
+  <div
+    className="align-items-center section-title row"
+  >
+    <div
+      className="col"
+    >
+      <h2>
+        My Projects
+      </h2>
+    </div>
+  </div>
+  <div
+    className="col align-self-center d-inline"
+  >
+    <h3>
+      You are not enrolled in any courses
+    </h3>
+    <p>
+      Getting started with 
+      edX
+       is easy. Simply find a project from the catalog
+    </p>
+  </div>
+</div>
+`;
+
+exports[`TestCoursesSection should render course section if a list of courses is provided 1`] = `
+<div
+  className="section-container container-fluid"
+>
+  <div
+    className="align-items-center section-title row"
+  >
+    <div
+      className="col"
+    >
+      <h2>
+        My Projects
+      </h2>
+    </div>
+  </div>
+  <div
+    className="pgn__data-table-layout-wrapper"
+  >
+    <div
+      className="pgn__data-table-layout-main"
+    >
+      <div
+        className="pgn__data-table-wrapper"
+      >
+        <div
+          className="pgn__card-grid pgn__data-table-card-view"
+        >
+          <div
+            className="row"
+          >
+            <div
+              className="col-xl-2 col-lg-6 col-12"
+            >
+              <div
+                className="pgn__card clickable card"
+                tabIndex="0"
+              >
+                <a
+                  href="http://localhost:18000/courses/course-v1:DiceyTech+PRJX001+PROJECT_X/course"
+                >
+                  <div
+                    className="card-image pgn__card-wrapper-image-cap vertical"
+                  >
+                    <img
+                      alt="Project Image"
+                      className="pgn__card-image-cap"
+                      src="images_course_image.jpg"
+                    />
+                  </div>
+                  <div
+                    className="pgn__card-header"
+                  >
+                    <div
+                      className="pgn__card-header-content"
+                    >
+                      <div
+                        className="pgn__card-header-title-md"
+                      >
+                        Project X
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="pgn__card-section text-wrap muted-link"
+                  >
+                    <p>
+                      Description of Project X
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="pgn__data-table-footer"
+        >
+          <div>
+            Showing 
+            1
+             of 
+            1
+            .
+          </div>
+          <nav
+            aria-label="table pagination"
+            className="pagination-minimal"
+          >
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              aria-relevant="text"
+              className="sr-only"
+            >
+              Page 1, Current Page, of 1
+            </div>
+            <ul
+              className="pagination"
+            >
+              <li
+                className="page-item disabled"
+              >
+                <button
+                  aria-label="Previous"
+                  className="btn-icon btn-icon-primary btn-icon-md previous page-link"
+                  disabled={true}
+                  onClick={[Function]}
+                  tabIndex="-1"
+                  type="button"
+                >
+                  <span
+                    className="btn-icon__icon-container"
+                  >
+                    <span
+                      className="pgn__icon btn-icon__icon"
+                    >
+                      <svg
+                        aria-hidden={true}
+                        fill="none"
+                        focusable={false}
+                        height={24}
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width={24}
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M17.51 3.87L15.73 2.1 5.84 12l9.9 9.9 1.77-1.77L9.38 12l8.13-8.13z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </li>
+              <li
+                className="page-item disabled"
+              >
+                <button
+                  aria-label="Next"
+                  className="btn-icon btn-icon-primary btn-icon-md next page-link"
+                  disabled={true}
+                  onClick={[Function]}
+                  tabIndex="-1"
+                  type="button"
+                >
+                  <span
+                    className="btn-icon__icon-container"
+                  >
+                    <span
+                      className="pgn__icon btn-icon__icon"
+                    >
+                      <svg
+                        aria-hidden={true}
+                        fill="none"
+                        focusable={false}
+                        height={24}
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width={24}
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6.49 20.13l1.77 1.77 9.9-9.9-9.9-9.9-1.77 1.77L14.62 12l-8.13 8.13z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
