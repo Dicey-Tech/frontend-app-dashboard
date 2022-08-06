@@ -20,11 +20,6 @@
     "start": "fedx-scripts webpack-dev-server --progress",
     "test": "fedx-scripts jest --coverage --passWithNoTests"
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run lint"
-    }
-  },
   "author": "Dicey Tech",
   "license": "AGPL-3.0",
   "homepage": "https://github.com/Dicey-Tech/frontend-app-dashboard#readme",
@@ -68,9 +63,11 @@
     "codecov": "3.8.3",
     "es-check": "5.2.4",
     "glob": "7.2.0",
-    "husky": "7.0.4",
     "jest": "27.2.2",
-    "reactifex": "1.1.1"
+    "enzyme": "3.11.0",
+    "enzyme-adapter-react-16": "1.15.6",
+    "reactifex": "1.1.1",
+    "react-test-renderer": "16.14.0"
   },
   "main": ".eslintrc.js",
   "directories": {
