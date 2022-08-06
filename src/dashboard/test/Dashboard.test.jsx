@@ -25,7 +25,7 @@ describe('DashboardPage', () => {
   beforeEach(() => {
     store = mockStore();
     configure({
-      loggingService: { logError: jest.fn(), },
+      loggingService: { logError: jest.fn() },
       config: {
         ENVIRONMENT: 'production',
         LANGUAGE_PREFERENCE_COOKIE_NAME: 'yum',
@@ -35,8 +35,8 @@ describe('DashboardPage', () => {
     props = {
       getEnrollmentList: jest.fn(),
       getCoursesOverview: jest.fn(),
-    }
-  })
+    };
+  });
 
   afterEach(() => {
     jest.clearAllMocks();
@@ -44,24 +44,24 @@ describe('DashboardPage', () => {
 
   it('renders a course section component by default', () => {
     store = mockStore({
-      enrollmentList: ["course-v1:DiceyTech+PRJX001+PROJECT_X"],
+      enrollmentList: ['course-v1:DiceyTech+PRJX001+PROJECT_X'],
       coursesOverview: [
         {
-          name: "Project X",
-          short_description: "Description of Project X",
-          course_id: "course-v1:DiceyTech+PRJX001+PROJECT_X",
+          name: 'Project X',
+          short_description: 'Description of Project X',
+          course_id: 'course-v1:DiceyTech+PRJX001+PROJECT_X',
           media: {
             image: {
-              small: "images_course_image.jpg"
-            }
-          }
-        }
+              small: 'images_course_image.jpg',
+            },
+          },
+        },
       ],
       enrollmentCallSuccess: true,
     });
 
-    const dashboardPage = mount(reduxWrapper(<IntlDashboardPage {...props}/>));
+    const dashboardPage = mount(reduxWrapper(<IntlDashboardPage {...props} />));
     expect(dashboardPage.find('DashboardPage').exists()).toEqual(true);
     expect(dashboardPage.find('CoursesSection').exists()).toEqual(true);
   });
-})
+});
