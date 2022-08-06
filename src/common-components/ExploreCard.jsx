@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { Card } from '@edx/paragon';
 import { getConfig } from '@edx/frontend-platform';
@@ -7,9 +6,8 @@ import { getConfig } from '@edx/frontend-platform';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faSearch } from '@fortawesome/free-solid-svg-icons';
 
-
 export default function ExploreCard() {
-  return(
+  return (
     <a href={getConfig().EXPLORE_COURSES_URL}>
       <Card isClickable>
         <div className="explore-card">
@@ -24,4 +22,4 @@ export default function ExploreCard() {
       </Card>
     </a>
   );
-};
+}

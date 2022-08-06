@@ -1,14 +1,16 @@
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
+import {
+  call, put, takeEvery, takeLatest,
+} from 'redux-saga/effects';
 
 import {
-    GET_COURSE_DATA,
-    getCourseDataBegin,
-    getCourseDataFailure,
-    getCourseDataSuccess,
-    GET_ENROLLMENT_DATA,
-    getEnrollmentDataBegin,
-    getEnrollmentDataFailure,
-    getEnrollmentDataSuccess,
+  GET_COURSE_DATA,
+  getCourseDataBegin,
+  getCourseDataFailure,
+  getCourseDataSuccess,
+  GET_ENROLLMENT_DATA,
+  getEnrollmentDataBegin,
+  getEnrollmentDataFailure,
+  getEnrollmentDataSuccess,
 } from './actions';
 
 import { fetcLearnerhEnrollments, fetchCourseOverview } from './service';
@@ -23,7 +25,7 @@ export function* getEnrollmentData() {
   }
 }
 
-export function* getCourseData(action){
+export function* getCourseData(action) {
   try {
     yield put(getCourseDataBegin());
     const data = yield call(fetchCourseOverview, action.payload.data);

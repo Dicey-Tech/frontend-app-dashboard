@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { Container, Row, Card, DataTable, CardView, TableFooter } from '@edx/paragon';
+import {
+  Container, DataTable, CardView, TableFooter,
+} from '@edx/paragon';
 import { getConfig } from '@edx/frontend-platform';
 
-import { ExploreCard, SectionTitle, DashboardCard, DiceySpinner } from '../common-components';
-
-// https://paragon-openedx.netlify.app/components/datatable/dataviews/#cardview-and-alternate-table-components
+import { SectionTitle, DashboardCard, DiceySpinner } from '../common-components';
 
 const INITIAL_STATE = {
   pageSize: 6,
-  pageIndex: 0
-}
+  pageIndex: 0,
+};
 
 const COLUMNS = [
   {
@@ -21,12 +22,12 @@ const COLUMNS = [
     Header: 'Description',
     accessor: 'description',
   },
-]
+];
 
-const COLUMN_SIZES = { xs: 12, lg: 6, xl: 2, }
+const COLUMN_SIZES = { xs: 12, lg: 6, xl: 2 };
 
-const CoursesSection  = ({courses, isReady, hasEnrollments}) => {
-  
+const CoursesSection = ({ courses, isReady, hasEnrollments }) => {
+  /* eslint-disable no-nested-ternary */
   const courseCards = !isReady ? <DiceySpinner />
     : !hasEnrollments ? (
       <div key="no-classrooms" className="col align-self-center d-inline">
@@ -47,15 +48,27 @@ const CoursesSection  = ({courses, isReady, hasEnrollments}) => {
           <TableFooter />
         </DataTable>
       );
-  
+
   return (
     <>
-      <Container  className="section-container">
+      <Container className="section-container">
         <SectionTitle>My Projects</SectionTitle>
         {courseCards}
       </Container>
     </>
   );
+};
+
+CoursesSection.propTypes = {
+  isReady: PropTypes.bool,
+  hasEnrollments: PropTypes.bool,
+  courses: PropTypes.arrayOf(PropTypes.object),
+};
+
+CoursesSection.defaultProps = {
+  isReady: false,
+  hasEnrollments: false,
+  courses: [],
 };
 
 export default CoursesSection;
