@@ -15,7 +15,7 @@ Installation
 We use Tutor for Edx please follow the instructions for installation and addition of this MFE as a plugin part of the MFE plugin.
 
 
-Default port is 1999. 
+Default port is 1999.
 
 Start the dev server:
 

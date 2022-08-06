@@ -15,7 +15,7 @@ decisions we make with this app as it evolves over time.
 Decision
 --------
 
-We will use Architecture Decision Records, as described by 
+We will use Architecture Decision Records, as described by
 Michael Nygard in `Documenting Architecture Decisions`_
 
 .. _Documenting Architecture Decisions: http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions
