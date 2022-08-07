@@ -25,18 +25,16 @@ const DashboardPage = (props) => {
       props.getEnrollmentData();
     }
 
-    if (props.enrollmentList.length > 0) {
-      const enrollments = props.enrollmentList.map((element) => ({
-        course_id: element.course_details.course_id,
-      }));
-
-      props.getCourseData(enrollments);
+    if (props.enrollmentList.length > 0 && props.coursesOverview.length === 0) {
+      props.enrollmentList.forEach((enrollment) => {
+        props.getCourseData(enrollment.course_details.course_id);
+      });
     }
   }, [props.enrollmentList]);
 
   // Get projects
   useEffect(() => {
-    if (props.enrollmentCallSuccess && props.coursesOverview.length === props.enrollmentList.length) {
+    if (props.enrollmentCallSuccess) {
       setReady(true);
     }
   }, [props.coursesOverview]);
@@ -45,7 +43,7 @@ const DashboardPage = (props) => {
     <CoursesSection
       hasEnrollments={props.enrollmentCallSuccess && (props.enrollmentList.length > 0)}
       isReady={ready}
-      courses={props.coursesOverview}
+      courses={props.coursesOverview.reverse()}
     />
   );
 };
