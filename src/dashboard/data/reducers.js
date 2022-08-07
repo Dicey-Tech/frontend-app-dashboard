@@ -41,7 +41,10 @@ const reducer = (state = defaultState, action) => {
     case GET_COURSE_DATA.SUCCESS:
       return {
         ...state,
-        coursesOverview: action.payload.data,
+        coursesOverview: [
+          ...state.coursesOverview,
+          action.payload.data,
+        ],
         formRenderState: COMPLETE_STATE,
       };
     case GET_COURSE_DATA.FAILURE:

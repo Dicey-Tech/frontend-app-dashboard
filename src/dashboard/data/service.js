@@ -18,26 +18,19 @@ export async function fetcLearnerhEnrollments() {
   return data;
 }
 
-export async function fetchCourseOverview(enrollments) {
+export async function fetchCourseOverview(courseId) {
   const requestConfig = {
     headers: { 'Content-Type': 'application/json' },
   };
-  const courses = [];
 
-  /* eslint-disable no-restricted-syntax */
-  /* eslint-disable no-await-in-loop */
-  for (const enrollment of enrollments) {
-    const { data } = await getAuthenticatedHttpClient()
-      .get(
-        `${getConfig().LMS_BASE_URL}/api/courses/v1/courses/${enrollment.course_id}`,
-        requestConfig,
-      )
-      .catch((e) => {
-        throw (e);
-      });
+  const { data } = await getAuthenticatedHttpClient()
+    .get(
+      `${getConfig().LMS_BASE_URL}/api/courses/v1/courses/${courseId}`,
+      requestConfig,
+    )
+    .catch((e) => {
+      throw (e);
+    });
 
-    courses.push(data);
-  }
-
-  return courses.reverse();
+  return data;
 }
