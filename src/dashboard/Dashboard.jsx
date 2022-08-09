@@ -43,7 +43,7 @@ const DashboardPage = (props) => {
     <CoursesSection
       hasEnrollments={props.enrollmentCallSuccess && (props.enrollmentList.length > 0)}
       isReady={ready}
-      courses={props.coursesOverview.reverse()}
+      courses={props.coursesOverview}
     />
   );
 };

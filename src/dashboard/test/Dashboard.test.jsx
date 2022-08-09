@@ -48,13 +48,9 @@ describe('DashboardPage', () => {
       coursesOverview: [
         {
           name: 'Project X',
-          short_description: 'Description of Project X',
-          course_id: 'course-v1:DiceyTech+PRJX001+PROJECT_X',
-          media: {
-            image: {
-              small: 'images_course_image.jpg',
-            },
-          },
+          description: 'Description of Project X',
+          courseId: 'course-v1:DiceyTech+PRJX001+PROJECT_X',
+          media: 'images_course_image.jpg',
         },
       ],
       enrollmentCallSuccess: true,

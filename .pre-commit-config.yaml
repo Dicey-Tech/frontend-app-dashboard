@@ -5,6 +5,7 @@ repos:
     rev: v4.1.0
     hooks:
       - id: trailing-whitespace
+        files: ^__snapshots__/
       - id: end-of-file-fixer
       - id: check-added-large-files
       - id: check-merge-conflict

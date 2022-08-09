@@ -22,7 +22,7 @@ exports[`<CoursesSection /> should render a message if the user is not enrolled 
       You are not enrolled in any courses
     </h3>
     <p>
-      Getting started with
+      Getting started with 
       edX
        is easy. Simply find a project from the catalog
     </p>
@@ -108,9 +108,9 @@ exports[`<CoursesSection /> should render course section if a list of courses is
           className="pgn__data-table-footer"
         >
           <div>
-            Showing
+            Showing 
             1
-             of
+             of 
             1
             .
           </div>
