@@ -27,6 +27,8 @@ const COLUMNS = [
 const COLUMN_SIZES = { xs: 12, lg: 6, xl: 2 };
 
 const CoursesSection = ({ courses, isReady, hasEnrollments }) => {
+  courses.sort((elemA, elemB) => elemB.start - elemA.start);
+
   /* eslint-disable no-nested-ternary */
   const courseCards = !isReady ? <DiceySpinner />
     : !hasEnrollments ? (

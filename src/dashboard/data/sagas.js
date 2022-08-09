@@ -29,7 +29,16 @@ export function* getCourseData(action) {
   try {
     yield put(getCourseDataBegin());
     const data = yield call(fetchCourseOverview, action.payload.data);
-    yield put(getCourseDataSuccess(data));
+
+    const course = {
+      courseId: data.id,
+      name: data.name,
+      description: data.short_description,
+      media: data.media.image.small,
+      start: Date.parse(data.start),
+    };
+
+    yield put(getCourseDataSuccess(course));
   } catch (e) {
     yield put(getCourseDataFailure(e));
   }

@@ -9,10 +9,9 @@ import DefaultImage from '../assets/defaultcourse.png';
 const DEFAULT_COURSE_IMAGE_NAME = 'images_course_image.jpg';
 const { LMS_BASE_URL } = getConfig();
 
-/* eslint-disable camelcase */
 export const DashboardCard = ({ original }) => {
-  const [imgSrc, setImgSrc] = useState(original.media.image.small);
-  const { name, short_description, course_id } = original;
+  const [imgSrc, setImgSrc] = useState(original.media);
+  const { name, description, courseId } = original;
 
   useEffect(() => {
     if (imgSrc.includes(DEFAULT_COURSE_IMAGE_NAME)) {
@@ -22,7 +21,7 @@ export const DashboardCard = ({ original }) => {
 
   return (
     <Card isClickable>
-      <a href={`${LMS_BASE_URL}/courses/${course_id}/course`}>
+      <a href={`${LMS_BASE_URL}/courses/${courseId}/course`}>
         <Card.ImageCap
           variant="top"
           src={imgSrc}
@@ -33,7 +32,7 @@ export const DashboardCard = ({ original }) => {
           title={name}
         />
         <Card.Section className="text-wrap muted-link">
-          <p>{short_description}</p>
+          <p>{description}</p>
         </Card.Section>
       </a>
     </Card>
