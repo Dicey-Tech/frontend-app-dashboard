@@ -17,6 +17,18 @@ describe('<CoursesSection />', () => {
           courseId: 'course-v1:DiceyTech+PRJX001+PROJECT_X',
           media: 'images_course_image.jpg',
         },
+        {
+          name: 'Project Y',
+          description: 'Description of Project Y',
+          courseId: 'course-v1:DiceyTech+PRJY001+PROJECT_Y',
+          media: 'course_image_Y.jpg',
+        },
+        {
+          name: 'Project Z',
+          description: 'Description of Project Z',
+          courseId: 'course-v1:DiceyTech+PRJZ001+PROJECT_Z',
+          media: 'course_image_Z.jpg',
+        },
       ],
     };
   });

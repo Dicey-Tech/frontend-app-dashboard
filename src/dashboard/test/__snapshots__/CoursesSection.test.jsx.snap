@@ -76,7 +76,7 @@ exports[`<CoursesSection /> should render course section if a list of courses is
                     <img
                       alt="Project Image"
                       className="pgn__card-image-cap"
-                      src="images_course_image.jpg"
+                      src="test-file-stub"
                     />
                   </div>
                   <div
@@ -102,6 +102,90 @@ exports[`<CoursesSection /> should render course section if a list of courses is
                 </a>
               </div>
             </div>
+            <div
+              className="col-xl-2 col-lg-6 col-12"
+            >
+              <div
+                className="pgn__card clickable card"
+                tabIndex="0"
+              >
+                <a
+                  href="http://localhost:18000/courses/course-v1:DiceyTech+PRJY001+PROJECT_Y/course"
+                >
+                  <div
+                    className="card-image pgn__card-wrapper-image-cap vertical"
+                  >
+                    <img
+                      alt="Project Image"
+                      className="pgn__card-image-cap"
+                      src="course_image_Y.jpg"
+                    />
+                  </div>
+                  <div
+                    className="pgn__card-header"
+                  >
+                    <div
+                      className="pgn__card-header-content"
+                    >
+                      <div
+                        className="pgn__card-header-title-md"
+                      >
+                        Project Y
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="pgn__card-section text-wrap muted-link"
+                  >
+                    <p>
+                      Description of Project Y
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div
+              className="col-xl-2 col-lg-6 col-12"
+            >
+              <div
+                className="pgn__card clickable card"
+                tabIndex="0"
+              >
+                <a
+                  href="http://localhost:18000/courses/course-v1:DiceyTech+PRJZ001+PROJECT_Z/course"
+                >
+                  <div
+                    className="card-image pgn__card-wrapper-image-cap vertical"
+                  >
+                    <img
+                      alt="Project Image"
+                      className="pgn__card-image-cap"
+                      src="course_image_Z.jpg"
+                    />
+                  </div>
+                  <div
+                    className="pgn__card-header"
+                  >
+                    <div
+                      className="pgn__card-header-content"
+                    >
+                      <div
+                        className="pgn__card-header-title-md"
+                      >
+                        Project Z
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="pgn__card-section text-wrap muted-link"
+                  >
+                    <p>
+                      Description of Project Z
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
         <div
@@ -109,9 +193,9 @@ exports[`<CoursesSection /> should render course section if a list of courses is
         >
           <div>
             Showing 
-            1
+            3
              of 
-            1
+            3
             .
           </div>
           <nav

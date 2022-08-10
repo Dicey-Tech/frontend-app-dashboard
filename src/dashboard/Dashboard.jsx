@@ -52,7 +52,7 @@ DashboardPage.propTypes = {
   getEnrollmentData: PropTypes.func,
   getCourseData: PropTypes.func,
   coursesOverview: PropTypes.arrayOf(PropTypes.object),
-  enrollmentList: PropTypes.arrayOf(PropTypes.string),
+  enrollmentList: PropTypes.arrayOf(PropTypes.object),
   enrollmentCallSuccess: PropTypes.bool,
 };
 
