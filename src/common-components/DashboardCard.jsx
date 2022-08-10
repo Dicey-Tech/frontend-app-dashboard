@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { getConfig } from '@edx/frontend-platform';
@@ -10,21 +10,20 @@ const DEFAULT_COURSE_IMAGE_NAME = 'images_course_image.jpg';
 const { LMS_BASE_URL } = getConfig();
 
 export const DashboardCard = ({ original }) => {
-  const [imgSrc, setImgSrc] = useState(original.media);
-  const { name, description, courseId } = original;
+  const {
+    name, description, courseId, media,
+  } = original;
 
-  useEffect(() => {
-    if (imgSrc.includes(DEFAULT_COURSE_IMAGE_NAME)) {
-      setImgSrc(DefaultImage);
-    }
-  }, [imgSrc]);
+  const cardImage = media.includes(DEFAULT_COURSE_IMAGE_NAME) ? (
+    DefaultImage
+  ) : media;
 
   return (
     <Card isClickable>
       <a href={`${LMS_BASE_URL}/courses/${courseId}/course`}>
         <Card.ImageCap
           variant="top"
-          src={imgSrc}
+          src={cardImage}
           className="card-image"
           srcAlt="Project Image"
         />
@@ -40,11 +39,20 @@ export const DashboardCard = ({ original }) => {
 };
 
 DashboardCard.defaultProps = {
-  original: {},
+  original: {
+    name: 'Project Title',
+    courseId: 'CourseID',
+    media: '',
+  },
 };
 
 DashboardCard.propTypes = {
-  original: PropTypes.shape,
+  original: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    courseId: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    media: PropTypes.string.isRequired,
+  }),
 };
 
 export default DashboardCard;
