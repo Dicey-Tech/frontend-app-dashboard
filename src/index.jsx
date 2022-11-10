@@ -52,6 +52,7 @@ initialize({
         GRADEBOOK_URL: process.env.GRADEBOOK_URL,
         CLASSROOM_MFE_URL: process.env.CLASSROOM_MFE_URL,
         EXPLORE_COURSES_URL: process.env.EXPLORE_COURSES_URL,
+        PORTFOLIO_URL: process.env.PORTFOLIO_URL,
       }, 'App loadConfig override handler');
     },
   },

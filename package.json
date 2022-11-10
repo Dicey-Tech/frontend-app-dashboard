@@ -32,7 +32,7 @@
   "dependencies": {
     "@edx/brand": "git+https://git@github.com/Dicey-Tech/brand-openedx.git",
     "@edx/frontend-component-footer": "10.2.2",
-    "@edx/frontend-component-header": "2.4.5",
+    "@edx/frontend-component-header": "git+https://github.com/Dicey-Tech/frontend-component-header-diceytech.git#nutmeg",
     "@edx/frontend-platform": "1.15.1",
     "@edx/paragon": "19.25.3",
     "@fortawesome/fontawesome-svg-core": "1.2.36",
